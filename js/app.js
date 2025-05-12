@@ -14,7 +14,7 @@ function createFeedBack(votes, title, description, category, comments) {
 	const spanElem2 = document.createElement("span");
 
 	divElem.classList.add("feedback-item");
-	divElemVote.classList.add("feedback-item-vote");
+	divElemVote.classList.add("feedback-item-votes");
 	spanElem.classList.add("text-regular-3");
 	divElemText.classList.add("feedback-item-text");
 	h3.classList.add("heading-3");
@@ -58,10 +58,15 @@ document.addEventListener("DOMContentLoaded", async () => {
 	console.log(FeedBacks);
 
 	for (let i = 0; i < FeedBacks.length; i++) {
-		const feedbackElem = createFeedBack(FeedBacks.votes, FeedBacks.title, FeedBacks.description, FeedBacks.category, FeedBacks.comments);
+		const elem = FeedBacks[i];
+		const feedbackElem = createFeedBack(
+			elem.votes,
+			elem.title,
+			elem.description,
+			elem.category,
+			elem.comments
+		);
 
 		section.appendChild(feedbackElem);
 	}
 });
-
-// votes, title, description, category, comments
